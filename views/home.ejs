@@ -106,12 +106,12 @@
         <div class="menu-wrapper" style="margin: auto;">
           <div class="menu">Our menu</div>
           <div class="popular-item">Most popular item</div>
-          <div class="food-container">
+          <div class="food-container .menu_section-container">
             <% if(!data.menu.length){ %>
             <span class="empty-message">No item has been added to the menu</span>
             <% }else{ %>
             <% data.menu.forEach((item)=>{%>
-            <div class="food-item">
+            <div class="food-item menu_section-item">
               <div class="image-container">
                 <img src="uploads/<%=item.image %>" alt="">
               </div>

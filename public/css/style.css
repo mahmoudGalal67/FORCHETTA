@@ -1434,7 +1434,7 @@ opacity: 1;
   #Services .services-group{
     flex-direction: column;
   }
-  /* Menu */
+  /* Menu-page*/
   #Menu .food-container{
     flex-direction: column;
     gap: 20px;
@@ -1483,7 +1483,7 @@ opacity: 1;
   }
 /* Blog-page */
   #Blog .blog-wrapper .blogs-container .blog-item{
-    width: 100%;
+    min-width: 100%;
   }
 /* Contact */
 main .contact-wrapper{
@@ -1493,6 +1493,10 @@ main .contact-wrapper{
 /* Home-menu */
 .menu-nav h3{
   text-align: center;
+}
+/* menu-section */
+.menu-wrapper .food-container{
+  flex-direction: column;
 }
 /* Gallry_page */
 main .gallary_bage-container .gallary_bage-element{
