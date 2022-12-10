@@ -125,7 +125,7 @@ rightarrow_menu.addEventListener("click" , slideRight)
 // Filtering-list
 
 let filteringData
-fetch("http://localhost:5000/menuFilter")
+fetch("/menuFilter")
 .then((res)=>res.json())
 .then((data)=> filteringData=data.data)
 
