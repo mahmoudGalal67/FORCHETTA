@@ -1,0 +1,35 @@
+<div class="admin_data-container">
+  <div style="color:#D0A66C; text-align: center; margin: 15px 0; font-size: 22px;"><%= title %></div>
+  <div class="admin_data-wrapper">
+    <% if(data.items.length) { %>
+      <% data.items.forEach((item)=> { %>
+        <div class="item">
+      <div class="image-container">
+        <img src="/uploads/<%=item.image %>" alt="">
+      </div>
+      <span><%= item.name %></span>
+      <div class="control">
+        <div class="control-wrapper">
+          <a href="/dashboard/<%= title %>/update/<%= item._id %>">
+            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+          </a>
+          <form action="/dashboard/<%= title %>/delete/<%= item._id %>?_method=DELETE" method="POST">
+            <button type="submit" style="background-color:transparent;">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+      <% }) %>
+    <% } else { %>
+        <span class="empty-message">No item has been added to the <%= title %></span>
+    <% } %>
+  </div>
+</div>
+<a href="/dashboard/<%= title %>/add">
+  <div class="addButton">
+    +
+  </div>
+</a>
+

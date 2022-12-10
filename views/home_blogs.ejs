@@ -1,0 +1,20 @@
+<section id="Blog">
+  <div class="blog-wrapper">
+    <div class="title fw-400 text-center mb-3">Our Blog</div>
+    <div class="details lead px-5 text-center mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, tenetur. Possimus quas, repellendus, porro earum officiis repellat dolores beatae consequatur vel itaque eos ipsa id.</div>
+    <div class="blogs-container">
+      <% if(!data.blogs.length) { %>
+        <span class="empty-message">No items has benn added to the blogs</span>
+        <% } else { %>
+        <% data.blogs.forEach((item)=>{ %>
+          <div class="blog-item rounded-3 col-md-12 shadow-lg p-0">
+        <div class="image-container">
+          <img class="rounded-3" src="uploads/<%= item.image %>" alt="">
+        </div>
+        <div class="name p-3">Caternig</div>
+        <div class="date px-3">Dubai Aug 25</div>
+      </div>
+      <% }) } %>
+    </div>
+  </div>
+</section>

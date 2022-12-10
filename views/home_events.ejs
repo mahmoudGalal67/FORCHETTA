@@ -1,0 +1,18 @@
+<main>
+  <div class="events-wrapper">
+    <h3>Our events</h3>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+    <div class="events-container events_home-container">
+      <% if(data.events.length){ %>
+        <% data.events.forEach((item)=>{ %>
+      <div class="home_events-element">
+        <img src="uploads/<%= item.image %>" alt="">
+        <span><%= item.name %></span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim ut ducimus eligendi id necessitatibus accusantium numquam consequatur dolorum eveniet molestiae?</p>
+      </div>
+    <% })}else{ %>
+      <span class="empty-message">No items has been added to the events</span>
+    <% } %>
+    </div>
+  </div>
+</main>

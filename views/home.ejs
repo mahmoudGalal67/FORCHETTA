@@ -1,0 +1,169 @@
+    <!-- header -->
+      <header>
+        <div class="header-wrapper">
+          <div class="details">
+            <h1>_Restraunt</h1>
+            <h2>Good Food & Good Mood</h2>
+            <p>Lorem ipsum dolor sit amet consectetur <span>, adipisicing elit.</span> </p>
+            <button class="explore"> Explore to menu &rarr;</button>
+          </div>
+          <div class="photo">
+            <img src="https://png.pngtree.com/png-clipart/20220221/original/pngtree-watercolor-of-dried-wheat-isolated-on-transparent-background-png-image_7284991.png" alt="">
+          </div>
+        </div>
+      </header>
+    <!-- header -->
+
+    <!-- About -->
+      <section id="About">
+        <div class="about-wrapper">
+          <div class="details">
+            <span>_About Us</span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sed itaque hic! Et nihil ipsa voluptates minima, placeat quaerat vero odit doloribus earum molestias! Doloremque!</p>
+            <button class="show"> Show more &rarr;</button>
+          </div>
+          <div class="photo">
+            <img src="https://png.pngtree.com/png-clipart/20220221/original/pngtree-watercolor-of-dried-wheat-isolated-on-transparent-background-png-image_7284991.png" alt="">
+          </div>
+        </div>
+      </section>
+    <!-- About -->
+
+    <!-- Services -->
+      <section id="Services">
+        <div class="services-wrapper">
+          <div class="services">Our Services</div>
+          <div class="awesome-sevices">Our awesome services</div>
+          <div class="services-group">
+            <div class="services-item">
+              <i class="fa-solid fa-ship"></i>
+              <span class="icon-name">Yacht</span>
+              <p>Quia ad, at perferendis natus iste nihil velit sunt dignissimos soluta doloribus dolore vel ut accusamus beatae?</p>
+            </div>
+            <div class="services-item">
+              <i class="fa-solid fa-bowl-food"></i>
+              <span class="icon-name">Catering</span>
+              <p>Quia ad, at perferendis natus iste nihil velit sunt dignissimos soluta doloribus dolore vel ut accusamus beatae?</p>
+            </div>
+            <div class="services-item">
+              <i class="fa-solid fa-cake-candles"></i>
+              <span class="icon-name">Birthday</span>
+              <p>Quia ad, at perferendis natus iste nihil velit sunt dignissimos soluta doloribus dolore vel ut accusamus beatae?</p>
+            </div>
+            <div class="services-item">
+              <i class="fa-solid fa-truck"></i>
+              <span class="icon-name">Delivering</span>
+              <p>Quia ad, at perferendis natus iste nihil velit sunt dignissimos soluta doloribus dolore vel ut accusamus beatae?</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- Services -->
+    <!-- Clients -->
+    <section id="clients">
+      <div class="clients-wrapper">
+        <div class="our-clients">
+          Our clients
+        </div>
+        <div class="clients-slider-wrapper">
+          <div class="clients-slider">
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220222/original/pngtree-hotel-service-worker-carrying-client-luggage-png-image_7299449.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220531/original/pngtree-isometric-bank-clients-business-service-managers-reception-banking-customers-office-open-png-image_7784269.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220531/original/pngtree-isometric-bank-clients-business-service-managers-reception-banking-customers-office-open-png-image_7784270.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220531/original/pngtree-isometric-bank-clients-business-service-managers-reception-banking-customers-office-open-png-image_7784249.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220430/original/pngtree-banking-service-concept-in-3d-isometric-outline-design-bank-client-pays-png-image_7601736.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220605/original/pngtree-money-transfer-png-image_7964587.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220131/original/pngtree-e-wallet-money-transfer-concept-mobile-wallet-internet-banking-png-image_7259407.png" alt="">
+            </div>
+            <div class="clients-item">
+              <img src="https://png.pngtree.com/png-clipart/20220602/original/pngtree-isometric-bank-clients-business-service-managers-reception-banking-customers-office-open-png-image_7885029.png" alt="">
+            </div>
+          </div>
+            <div class="arrows">
+              <div class="left-arrow homeleftArrow"><i class="fa-solid fa-arrow-left"></i></div>
+              <div class="right-arrow homeRightArrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- Clients -->
+    <!-- Menu -->
+    <section id="menu">
+        <div class="menu-wrapper" style="margin: auto;">
+          <div class="menu">Our menu</div>
+          <div class="popular-item">Most popular item</div>
+          <div class="food-container">
+            <% if(!data.menu.length){ %>
+            <span class="empty-message">No item has been added to the menu</span>
+            <% }else{ %>
+            <% data.menu.forEach((item)=>{%>
+            <div class="food-item">
+              <div class="image-container">
+                <img src="uploads/<%=item.image %>" alt="">
+              </div>
+              <span style="margin:auto;"><%= item.name %></span>
+            </div>
+            <%}) }%>
+          </div>
+        </div>
+    </section>
+    <!-- Menu -->
+    <!-- gallary -->
+      <section id="Gallary">
+        <div class="gallary-wrapper">
+          <div class="gallary">Our gallary</div>
+          <div class="gallary-container" style="flex-wrap: wrap;">
+            <% if(!data.gallary.length){ %>
+              <span class="empty-message">No item has been added to the gallary</span>
+              <% }else{ %>
+              <% data.menu.forEach((item)=>{%>
+                <div class="gallary-item" style="min-width:calc(100%/3 - 16px);">
+                  <div class="image-container" style="height:100%;">
+                    <img src="uploads/<%= item.image %>" style="object-fit:cover;" alt="">
+                  </div>
+                  <span><%= item.name %></span>
+                </div>
+              <%}) }%>
+          </div>
+        </div>
+      </section>
+    <!-- gallary -->
+
+<script>
+// Slider
+
+const leftArrow_client = document.querySelector(".left-arrow.homeleftArrow")
+const rightArrow_client = document.querySelector(".right-arrow.homeRightArrow")
+const slider = document.querySelector(".clients-slider")
+let sliderIndex=0 
+
+leftArrow_client.addEventListener("click" ,()=>{
+    if(sliderIndex!==-5){
+      sliderIndex-=1
+      slider.style.transform=`translateX(${410*sliderIndex}px)`
+    }
+})
+
+rightArrow_client.addEventListener("click" ,()=>{
+    if(sliderIndex!==0){
+      sliderIndex+=1
+      slider.style.transform=`translateX(${410*sliderIndex}px)`
+    }
+})
+
+</script>
+

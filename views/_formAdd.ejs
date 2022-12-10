@@ -1,0 +1,12 @@
+      <input type="text" name="name" placeholder="Add name" value="<%= data.item.name %>">
+      <input type="text" name="desc" placeholder="Add descreption" value="<%= data.item.desc %>" >
+      <label for="imageUpload">Upload image</label>
+      <input style="display: none;" type="file" id="imageUpload" name="image" accept="image/*" >
+      <button type="submit">Add</button>
+      <!-- <% if(data.success != '') { %>
+          <span class="success-message"><%= data.success %></span>
+      <% } %> -->
+
+      <% if(data.error != '') { %>
+        <span class="error-message"><%= data.error %></span>
+      <% } %>

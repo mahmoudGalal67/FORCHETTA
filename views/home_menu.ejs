@@ -1,0 +1,172 @@
+<!-- header -->
+      <header>
+        <div class="header-wrapper">
+          <div class="details">
+            <h1>_Restraunt</h1>
+            <h2>Good Food & Good Mood</h2>
+            <p>Lorem ipsum dolor sit amet consectetur <span>, adipisicing elit.</span> </p>
+            <button class="explore"> Explore to menu &rarr;</button>
+          </div>
+          <div class="photo">
+            <img src="https://png.pngtree.com/png-clipart/20220221/original/pngtree-watercolor-of-dried-wheat-isolated-on-transparent-background-png-image_7284991.png" alt="">
+          </div>
+        </div>
+      </header>
+    <!-- header -->
+
+    <!-- About -->
+      <section id="About">
+        <div class="about-wrapper">
+          <div class="details">
+            <span>_About Us</span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sed itaque hic! Et nihil ipsa voluptates minima, placeat quaerat vero odit doloribus earum molestias! Doloremque!</p>
+            <button class="show"> Show more &rarr;</button>
+          </div>
+          <div class="photo">
+            <img src="https://png.pngtree.com/png-clipart/20220221/original/pngtree-watercolor-of-dried-wheat-isolated-on-transparent-background-png-image_7284991.png" alt="">
+          </div>
+        </div>
+      </section>
+    <!-- About -->
+    <!-- Menu -->
+      <section id="Menu">
+        <div class="menu-wrapper" style="margin: auto;">
+          <div class="menu">Our menu</div>
+          <div class="popular-item">Most popular item</div>
+          <div class="food-container">
+            <div class="food-item">
+              <div class="image-container">
+                <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+              </div>
+              <span style="margin:auto;">Pasta</span>
+            </div>
+            <div class="food-item">
+              <div class="image-container">
+                <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+              </div>
+              <span style="margin:auto;">Pasta</span>
+            </div>
+            <div class="food-item">
+              <div class="image-container">
+                <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+              </div>
+              <span style="margin:auto;">Pasta</span>
+            </div>
+          </div>
+          <div class="menu-nav">
+            <div class="explore">
+              <h3>Our menu</h3>
+              <p>Explore the flavour</p>
+            </div>
+            <ul>
+              <li>breakfast</li>
+              <li>lunch</li>
+              <li>dinner</li>
+              <li>party</li>
+              <li class="active">all</li>
+            </ul>
+            <div class="arrows">
+              <div id="menu-left-arrow" class="left-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+              <div id="menu-right-arrow" class="right-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-wrapper hidden-slider" style="margin: 30px 20px 180px ;">
+            <% if(!data.menu.length){ %>
+            <span class="empty-message">No item has been added to the menu</span>
+            <% }else{ %>
+            <div class="menu-slider food-container">
+            <% data.menu.forEach((item)=>{%>
+            <div class="food-item home_menu-item">
+              <div class="image-container">
+                <img src="uploads/<%= item.image %>" alt="">
+              </div>
+              <span style="margin:auto;"><%= item.name %></span>
+            </div>
+            <%}) }%>
+          </div>
+        </div>
+      </section> 
+    <!-- Menu -->
+<script>
+// Slider
+
+const leftarrow_menu=document.getElementById("menu-left-arrow")
+const rightarrow_menu=document.getElementById("menu-right-arrow")
+const sliderMenu = document.querySelector(".menu-slider")
+
+let count
+  const getCounts =async()=>{
+    const getCount= await fetch("http://localhost:5000/countMenu")
+    const res =await getCount.json()
+    count = res.count
+  }
+  getCounts()
+  let nums=0
+  const slideLeft= ()=>{
+  let allowMovement=count-3
+    if(nums>-allowMovement){
+      nums--
+    sliderMenu.style.transform=`translateX(${nums *100/3}%)`
+    }
+}
+
+const slideRight= ()=>{
+    if(nums<0){
+      nums++
+    sliderMenu.style.transform=`translateX(${nums * 100/3}%)`
+    }
+}
+
+leftarrow_menu.addEventListener("click" , slideLeft)
+rightarrow_menu.addEventListener("click" , slideRight)
+
+
+// Filtering-list
+
+let filteringData
+fetch("http://localhost:5000/menuFilter")
+.then((res)=>res.json())
+.then((data)=> filteringData=data.data)
+
+
+const menuContainer =document.querySelector(".menu-slider.food-container")
+const filters = Array.from(document.querySelectorAll(".menu-nav ul li"))
+
+let menu=""
+
+filters.map((filter)=>{
+  filter.addEventListener("click" , (e)=>{
+  sliderMenu.style.transform=`translateX(${0}%)`
+  nums=0
+    e.target.parentElement.querySelector(".active").classList.remove("active")
+    e.target.classList.add("active")
+    if(e.target.innerText==="all"){
+    count=filteringData.length
+    filteringData.map((el)=>
+    menu+=`
+    <div class=food-item home_menu-item>
+      <div class=image-container>
+        <img src=uploads/${el.image} alt="">
+      </div>
+      <span style=margin:auto;> ${el.name}</span>
+    </div>`)
+    menuContainer.innerHTML=menu
+    menu=""
+    }else{
+    let menuData = filteringData.filter((el)=> el.category===e.target.innerText)
+    count=menuData.length
+    menuData.map((el)=>
+    menu+=`
+    <div class=food-item home_menu-item>
+      <div class=image-container>
+        <img src=uploads/${el.image} alt="">
+      </div>
+      <span style=margin:auto;> ${el.name}</span>
+    </div>`)
+    menuContainer.innerHTML=menu
+    menu=""
+  }})
+})
+
+</script>

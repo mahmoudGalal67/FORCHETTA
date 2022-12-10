@@ -1,0 +1,10 @@
+<% if(<% typeof message!== undefined %>){%>
+<h1>Soory Not Found</h1>
+<p><%= message %></p>
+<a href="/" class="btn">Go to Home</a>
+<%}%>
+<%else{%>
+<h1>Server Error</h1>
+<p>We're sorry, something went wrong</p>
+<a href="/dashboard" class="btn">Go to Dashboard</a>
+<%}%>

@@ -1,0 +1,36 @@
+<!-- header -->
+      <header>
+        <div class="header-wrapper">
+          <div class="details">
+            <h1>_Restraunt</h1>
+            <h2>Good Food & Good Mood</h2>
+            <p>Lorem ipsum dolor sit amet consectetur <span>, adipisicing elit.</span> </p>
+            <button class="explore"> Explore to menu &rarr;</button>
+          </div>
+          <div class="photo">
+            <img src="https://png.pngtree.com/png-clipart/20220221/original/pngtree-watercolor-of-dried-wheat-isolated-on-transparent-background-png-image_7284991.png" alt="">
+          </div>
+        </div>
+      </header>
+<!-- header -->
+
+
+<main>
+  <div class="gallary_bage-wrapper">
+    <h3>Our gallary</h3>
+    <% if(data.gallary.length) { %>
+    <div class="gallary_bage-container">
+    <% data.gallary.forEach((item)=>{ %>
+      <div class="gallary_bage-element">
+        <img src="/uploads/<%= item.image %>" alt="">
+        <div class="content">
+          <span><%= item.name %></span>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <span class="empty-message">NO item has been added to the gallary</span>
+    <% } %>
+  </div>
+</main>
