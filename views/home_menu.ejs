@@ -97,7 +97,7 @@ const sliderMenu = document.querySelector(".menu-slider")
 
 let count
   const getCounts =async()=>{
-    const getCount= await fetch("http://localhost:5000/countMenu")
+    const getCount= await fetch("/countMenu")
     const res =await getCount.json()
     count = res.count
   }
